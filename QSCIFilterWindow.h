@@ -15,7 +15,7 @@
 	CGSWindowFilterRef fid;
 }
 - (void)setFilter:(NSString *)filter;
--(void)setFilterValues:(NSDictionary *)filterValues;
+- (void)setFilterValues:(NSDictionary *)filterValues;
 - (void)setLevel:(int)level;
 - (void)createOverlay;
 @end

@@ -86,6 +86,6 @@ CGSConnection cid;
 }
 -(void)setFilterValues:(NSDictionary *)filterValues{
 	if (!fid) return;
-		CGSSetCIFilterValuesFromDictionary(cid, fid, (CFDictionaryRef)filterValues);
+  CGSSetCIFilterValuesFromDictionary(cid, fid, (CFDictionaryRef)filterValues);
 }
 @end
