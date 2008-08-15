@@ -60,6 +60,8 @@ enum {
 
 - (void) setMonitorSensors:(BOOL)flag;
 
++ (BOOL)hasSensors;
+
 @end
 
 @interface NSObject (QSLMUMonitorDelegate)
