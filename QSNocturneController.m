@@ -20,13 +20,11 @@ void CGSSetDebugOptions(int);
   [self setKeys:[NSArray arrayWithObject:@"enabled"] triggerChangeNotificationsForDependentKey:@"toggleTitle"];
   [self setKeys:[NSArray arrayWithObject:@"enabled"] triggerChangeNotificationsForDependentKey:@"toggleImage"];
   [self setKeys:[NSArray arrayWithObject:@"useLightSensors"] triggerChangeNotificationsForDependentKey:@"lightMonitor"];
-  
 }
 - (void)awakeFromNib {
   [prefsWindow setBackgroundColor:[NSColor whiteColor]];   
   [prefsWindow setLevel:NSFloatingWindowLevel];   
   [prefsWindow setHidesOnDeactivate:YES];   
-  
   
   NSUserDefaultsController *dController = [NSUserDefaultsController sharedUserDefaultsController];
   [self bind:@"useLightSensors" toObject:dController withKeyPath:@"values.useLightSensors" options:nil];
@@ -67,11 +65,23 @@ void CGSSetDebugOptions(int);
   NSRect screenFrame = [[NSScreen mainScreen] visibleFrame];
   NSRect windowFrame = [prefsWindow frame];
   windowFrame = NSOffsetRect(windowFrame, NSMaxX(screenFrame) - NSMaxX(windowFrame) - 20, NSMaxY(screenFrame) - NSMaxY(windowFrame) - 20);
-  [prefsWindow setFrame:windowFrame display:YES animate:YES ];  
+  [prefsWindow setFrame:windowFrame display:YES animate:YES ];
+  if (overlayWindows == NULL) {
+    overlayWindows = [[NSMutableArray alloc] init];
+  }
+  if (desktopWindows == NULL) {
+    desktopWindows = [[NSMutableArray alloc] init];
+  }
 }
 
 - (void)applicationDidChangeScreenParameters:(NSNotification *)aNotification{
-  [overlayWindow setFrame:[[NSScreen mainScreen] frame] display:NO];  
+	if ([overlayWindows count] != 0) {
+		[self setupOverlays];
+	}
+	[self updateGamma];
+	if ([desktopWindows count] != 0) {
+		[self setDesktopHidden:YES];
+	}
 }
 
 
@@ -118,10 +128,6 @@ void CGSSetDebugOptions(int);
 
 - (QSLMUMonitor *)lightMonitor {
   return monitor;
-  if (monitor)
-  if (!monitor) {
-    }
-  return monitor;
 }
 
 - (void)monitor:(QSLMUMonitor *)monitor passedLowerBound:(SInt32)lowerBound withValue:(SInt32)value {
@@ -156,23 +162,29 @@ void CGSSetDebugOptions(int);
 
 
 - (void)setDesktopHidden:(BOOL)hidden {
-  if (hidden) {
-    if (!desktopWindow) {
-      desktopWindow = [[NSWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame]
+	NSWindow *desktopWindow;
+	while ([desktopWindows count] > 0) {
+		desktopWindow = [desktopWindows lastObject];
+		[desktopWindow release];
+		desktopWindow = nil;
+		[desktopWindows removeLastObject];
+	}
+	if (hidden) {
+		for (int i = 0; i < [[NSScreen screens] count]; ++i) {
+			desktopWindow = [[NSWindow alloc] initWithContentRect:[[[NSScreen screens] objectAtIndex:i] frame]
                                                   styleMask:NSBorderlessWindowMask
                                                     backing:NSBackingStoreBuffered
                                                       defer:NO];
-      [desktopWindow setHidesOnDeactivate:NO];
-      [desktopWindow setCanHide:NO];
-      [desktopWindow setIgnoresMouseEvents:YES];
-    }
-    [desktopWindow setLevel:kCGDesktopWindowLevel];
-    [desktopWindow setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]];
-    [desktopWindow orderFront:nil];
-  } else {
-    [desktopWindow release];
-    desktopWindow = nil;
-  }
+			[desktopWindow setHidesOnDeactivate:NO];
+			[desktopWindow setCanHide:NO];
+			[desktopWindow setIgnoresMouseEvents:YES];
+			[desktopWindow setLevel:kCGDesktopWindowLevel];
+			[desktopWindow setBackgroundColor:[NSColor colorWithDeviceWhite:0.9 alpha:1.0]];
+			[desktopWindow orderFront:nil];
+			
+			[desktopWindows addObject:desktopWindow];
+		}
+	}
 }
 
 
@@ -194,7 +206,7 @@ void CGSSetDebugOptions(int);
   if (dErr == kIOReturnSuccess) {
     return brightness;
   } else {
-   return 1.0;
+    return 1.0;
   }
 }
 
@@ -244,7 +256,7 @@ void CGSSetDebugOptions(int);
     [self restoreGamma];
     return;
   }
-
+  
   NSColor *whitepoint = [whiteColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
   NSColor *blackpoint = [blackColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
   
@@ -252,16 +264,16 @@ void CGSSetDebugOptions(int);
   CGGammaValue greenTable[ 256 ];
   CGGammaValue blueTable[ 256 ];
   CGDisplayErr cgErr;
-
+  
   float maxR = whitepoint ? [whitepoint redComponent] : 1.0;
   float maxG = whitepoint ? [whitepoint greenComponent] : 1.0;
   float maxB = whitepoint ? [whitepoint blueComponent] : 1.0;
-
+  
   float minR = blackpoint ? [blackpoint redComponent] : 0.0;
   float minG = blackpoint ? [blackpoint greenComponent] : 0.0;
   float minB = blackpoint ? [blackpoint blueComponent] : 0.0;
   
-
+  
   if (fabs(maxR-minR) + fabs(maxG-minG) + fabs(maxB-minB) < 0.1) {
     //NSLog(@"adjusting colors to protect %f", fabs(maxR-minR) + fabs(maxG-minG) + fabs(maxB-minB));
     maxR += 0.1;
@@ -278,31 +290,39 @@ void CGSSetDebugOptions(int);
     blueTable[ i ] = minB + (maxB - minG) * gOriginalBlueTable[ i ];
   }
   
-  cgErr = CGSetDisplayTransferByTable( 0, 256, redTable, greenTable, blueTable);
-
+  //get the number of displays
+  CGDisplayCount numDisplays;
+  CGGetActiveDisplayList(0, NULL, &numDisplays);
+  
+  //set the gamma on each display
+  CGDirectDisplayID displays[numDisplays];
+  CGGetActiveDisplayList(numDisplays, displays, NULL);
+  for (int i = 0; i < 10; ++i) {
+    cgErr = CGSetDisplayTransferByTable(displays[i], 256, redTable, greenTable, blueTable);
+  }
 }
 
 - (void)setInverted:(BOOL)value{
   CGDisplaySetInvertedPolarity(value);
-//  NSRect screenFrame = [[NSScreen mainScreen] frame];
-//  NSRect cornerFrame1 = NSMakeRect(NSMinX(screenFrame), NSMaxY(screenFrame) - 8, 8, 8);
-//  NSRect cornerFrame2 = NSMakeRect(NSMaxX(screenFrame) - 8, NSMaxY(screenFrame) - 8, 8, 8);
-//  
-//  if (value) {
-//    NSWindow *cornerWindow1 = [[NSWindow alloc] initWithContentRect:cornerFrame1
-//                                                          styleMask:NSBorderlessWindowMask
-//                                                            backing:NSBackingStoreBuffered
-//                                                              defer:NO];
-//    NSWindow *cornerWindow2 = [[NSWindow alloc] initWithContentRect:cornerFrame2
-//                                                          styleMask:NSBorderlessWindowMask
-//                                                            backing:NSBackingStoreBuffered
-//                                                              defer:NO];
-//    [cornerWindow1 orderFront:nil];
-//    [cornerWindow1 setLevel:NSStatusWindowLevel+1];
-//    [cornerWindow2 orderFront:nil];
-//    [cornerWindow2 setLevel:NSStatusWindowLevel+1];
-//
-//  }
+  //  NSRect screenFrame = [[NSScreen mainScreen] frame];
+  //  NSRect cornerFrame1 = NSMakeRect(NSMinX(screenFrame), NSMaxY(screenFrame) - 8, 8, 8);
+  //  NSRect cornerFrame2 = NSMakeRect(NSMaxX(screenFrame) - 8, NSMaxY(screenFrame) - 8, 8, 8);
+  //  
+  //  if (value) {
+  //    NSWindow *cornerWindow1 = [[NSWindow alloc] initWithContentRect:cornerFrame1
+  //                                                          styleMask:NSBorderlessWindowMask
+  //                                                            backing:NSBackingStoreBuffered
+  //                                                              defer:NO];
+  //    NSWindow *cornerWindow2 = [[NSWindow alloc] initWithContentRect:cornerFrame2
+  //                                                          styleMask:NSBorderlessWindowMask
+  //                                                            backing:NSBackingStoreBuffered
+  //                                                              defer:NO];
+  //    [cornerWindow1 orderFront:nil];
+  //    [cornerWindow1 setLevel:NSStatusWindowLevel+1];
+  //    [cornerWindow2 orderFront:nil];
+  //    [cornerWindow2 setLevel:NSStatusWindowLevel+1];
+  //
+  //  }
 }
 
 - (void)setMonochrome:(BOOL)value{
@@ -310,25 +330,49 @@ void CGSSetDebugOptions(int);
 }
 
 - (void)setHueAngle:(float)hue {
-  if (hue == 0) {
-    [overlayWindow release];
-    overlayWindow = nil;
-  } else {
-    if (!overlayWindow) {
-      overlayWindow = [[QSCIFilterWindow alloc] init];
-      [overlayWindow setLevel:kCGMaximumWindowLevel];
-      [overlayWindow setFilter:@"CIHueAdjust"];
-      [overlayWindow setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];
-      [overlayWindow orderFront:nil];
-    }
-    [overlayWindow setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];
-    
-  }
+	if (hue == 0) {
+		[self removeOverlays];
+	} else {
+		[self setupOverlays];
+	}    
 }
 
+- (void)removeOverlays{
+	while([overlayWindows count] > 0) {
+		QSCIFilterWindow *overlayWindow = [overlayWindows lastObject];
+		[overlayWindow release];
+		[overlayWindows removeLastObject];
+		overlayWindow = nil;
+	}
+}
+
+- (void)setupOverlays{
+	for (int i = 0; i < [[NSScreen screens] count]; ++i) {
+		QSCIFilterWindow *overlayWindow;
+		if ([overlayWindows count] <= i) {
+			overlayWindow = [[QSCIFilterWindow alloc] init];
+			[overlayWindow setLevel:kCGMaximumWindowLevel];
+			[overlayWindow setFilter:@"CIHueAdjust"];
+			[overlayWindow setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];
+			[overlayWindow orderFront:nil];
+			[overlayWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+			
+			[overlayWindows addObject:overlayWindow];
+		} else {
+			overlayWindow = [overlayWindows objectAtIndex:i];
+		}
+		[overlayWindow setFrame:[[[NSScreen screens] objectAtIndex:i] frame] display:NO];
+	}
+	while ([overlayWindows count] > [[NSScreen screens] count]) {
+		QSCIFilterWindow *overlayWindow = [overlayWindows lastObject];
+		[overlayWindow release];
+		[overlayWindows removeLastObject];
+		overlayWindow = nil;
+	}
+}	
 
 - (void)setHueCorrect:(BOOL)value{
- // if (![[dController valueForKeyPath: @"values.inverted"] boolValue]) value = NO;
+  // if (![[dController valueForKeyPath: @"values.inverted"] boolValue]) value = NO;
   [self setHueAngle: value ? M_PI : 0];
 }
 
@@ -345,7 +389,7 @@ void CGSSetDebugOptions(int);
 }
 
 - (void)applyEnabled:(BOOL)value {
-
+  
   if (statusItem) [[statusItem _window] display];
   
   if (enabled) {
@@ -366,7 +410,7 @@ void CGSSetDebugOptions(int);
        options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:NSValueTransformerNameBindingOption]];
     [self bind:@"blackColor" toObject:dController withKeyPath:@"values.blackColor"
        options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:NSValueTransformerNameBindingOption]];
-
+    
   } else { 
     [self unbind:@"inverted"];
     [self unbind:@"hueCorrect"];
@@ -403,7 +447,7 @@ void CGSSetDebugOptions(int);
   if (!fade) {
     [self applyEnabled:value]; 
   } else { 
-  
+    
     float fadeout = enabled ? 0.5 : 1.0;
     float fadein = enabled ? 0.5 : 1.0;
     CGDisplayFadeReservationToken token;
@@ -412,8 +456,8 @@ void CGSSetDebugOptions(int);
     if (err == kCGErrorSuccess) {
       err = CGDisplayFade (token, 0.25, kCGDisplayBlendNormal,
                            kCGDisplayBlendSolidColor, fadeout, fadeout, fadeout, true); // 2
-                                                                            // Your code to change the display mode and
-                                                                            // set the full-screen context.
+      // Your code to change the display mode and
+      // set the full-screen context.
       @try {
         [self applyEnabled:value];
         //   [prefsWindow makeKeyAndOrderFront:nil];  
@@ -481,10 +525,9 @@ void CGSSetDebugOptions(int);
     [blackColor release];
     blackColor = [value copy];
     [self updateGamma];
-
+    
   }
 }
-
 
 @end
 

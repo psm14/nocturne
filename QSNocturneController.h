@@ -11,8 +11,8 @@
   CGGammaValue gOriginalRedTable[ 256 ];
   CGGammaValue gOriginalGreenTable[ 256 ];
   CGGammaValue gOriginalBlueTable[ 256 ];
-  NSWindow *desktopWindow;
-  QSCIFilterWindow *overlayWindow;
+  NSMutableArray *desktopWindows;
+  NSMutableArray *overlayWindows;
   IBOutlet NSWindow *prefsWindow;
   IBOutlet NSMenu *statusMenu;
   BOOL shouldQuit;
@@ -27,6 +27,8 @@
 }
 - (IBAction)toggle:(id)sender;
 
+- (void)setDesktopHidden:(BOOL)hidden;
+
 - (IBAction)showPreferences:(id)sender;
 - (BOOL)enabled;
 - (void)setEnabled:(BOOL)value;
@@ -37,12 +39,14 @@
 - (NSColor *)blackColor;
 - (void)setBlackColor:(NSColor *)value;
 
-
 - (void)updateGamma;
 
 - (float)getDisplayBrightness;
 - (IBAction)revertGamma:(id)sender;
 
-
 - (QSLMUMonitor *)lightMonitor;
+
+- (void)removeOverlays;
+- (void)setupOverlays;
+
 @end
