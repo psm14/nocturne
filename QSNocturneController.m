@@ -356,7 +356,14 @@ void CGSSetDebugOptions(int);
 			[overlayWindow setFilter:@"CIHueAdjust"];
 			[overlayWindow setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];
 			[overlayWindow orderFront:nil];
-			[overlayWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+      
+      //OSX 10.4 compatible code that puts the overlays on all spaces
+      // replacement for the line commented out below
+      if ([overlayWindow respondsToSelector:@selector(setCollectionBehavior:)]) {
+        [overlayWindow setCollectionBehavior:1];
+      }
+      //This line is OSX 10.5 specific. Comment out this line to compile for 10.4
+      //[overlayWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
 			
 			[overlayWindows addObject:overlayWindow];
 		} else {
