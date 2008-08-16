@@ -26,6 +26,7 @@ void CGSSetDebugOptions(int);
   [prefsWindow setLevel:NSFloatingWindowLevel];   
   [prefsWindow setHidesOnDeactivate:YES];   
   
+  
   NSUserDefaultsController *dController = [NSUserDefaultsController sharedUserDefaultsController];
   [self bind:@"useLightSensors" toObject:dController withKeyPath:@"values.useLightSensors" options:nil];
   
