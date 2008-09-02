@@ -362,7 +362,7 @@ void CGSSetDebugOptions(int);
       if ([overlayWindow respondsToSelector:@selector(setCollectionBehavior:)]) {
         [overlayWindow setCollectionBehavior:1];
       }
-      //This line is OSX 10.5 specific. Comment out this line to compile for 10.4
+      //This line is OSX 10.5 specific.
       //[overlayWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
 			
 			[overlayWindows addObject:overlayWindow];
