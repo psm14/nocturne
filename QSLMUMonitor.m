@@ -30,7 +30,7 @@
 - (void)checkValues:(NSTimer *)timer {
   IOItemCount   scalarInputCount = 0;
   IOItemCount   scalarOutputCount = 2;
-  
+  /*
   SInt32 newLeft;
   SInt32 newRight;
   kern_return_t kr = IOConnectMethodScalarIScalarO(dataPort, kGetSensorReadingID,
@@ -63,9 +63,10 @@
 // NSLog(@"kr %x", kr);
  
   if (kr == kIOReturnBusy) return;
-  
     mach_error("I/O Kit error:", kr);
   //  exit(kr);
+   */
+
 }
 
 + (BOOL)hasSensors {

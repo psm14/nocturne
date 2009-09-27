@@ -8,11 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CGSPrivate.h"
-#import "CGSPrivate+QSMods.h"
 
 @interface QSCIFilterWindow : NSWindow {
 	CGSWindow wid;
-	CGSWindowFilterRef fid;
+	void * fid;
 }
 - (void)setFilter:(NSString *)filter;
 - (void)setFilterValues:(NSDictionary *)filterValues;

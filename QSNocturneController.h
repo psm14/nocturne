@@ -1,7 +1,7 @@
 /* QSNocturneController */
 
 #import <Cocoa/Cocoa.h>
-#import "CGSPrivate.h"
+#include "CGSPrivate.h"
 
 #import "QSCIFilterWindow.h"
 #import "QSLMUMonitor.h"
@@ -24,7 +24,23 @@
   NSStatusItem *statusItem;
   float originalBrightness;
   QSLMUMonitor *monitor;
+  
+  
+  NSWindow *menuWindow;
+  QSCIFilterWindow *menuHueOverlay;
+  QSCIFilterWindow *menuInvertOverlay;
+  NSArray *windows;
+  BOOL trackingMenu;
+  BOOL visible;
+  BOOL shouldHide;
+  BOOL correctHue;
+  BOOL dimMenu;
+  BOOL invertMenuAlways;
 }
+
+@property(nonatomic, assign) BOOL dimMenu;
+@property(nonatomic, assign) BOOL invertMenuAlways;
+
 - (IBAction)toggle:(id)sender;
 
 - (void)setDesktopHidden:(BOOL)hidden;

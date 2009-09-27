@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.6</string>
+	<string>2.0.0</string>
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSMainNibFile</key>
@@ -50,8 +50,18 @@
 		<false/>
 		<key>upperLightValue</key>
 		<integer>1000</integer>
+		<key>enabled</key>
+		<false/>
 		<key>useLightSensors</key>
 		<false/>
+		<key>dimMenuDuration</key>
+		<string>1.0</string>
+		<key>dimMenuOpacity</key>
+		<string>0.0</string>
+		<key>undimMenuOpacity</key>
+		<string>1.0</string>
+		<key>undimMenuDuration</key>
+		<string>0.25</string>
 		<key>whiteColor</key>
 		<data>BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARmZmZmAQAAAYY=</data>
 	</dict>

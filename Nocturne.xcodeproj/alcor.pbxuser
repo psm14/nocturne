@@ -9,19 +9,21 @@
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeArchitecture = i386;
+		activeArchitecturePreference = x86_64;
 		activeBuildConfigurationName = Release;
 		activeExecutable = 7F93F0BC0BF161B500745665 /* Nocturne */;
+		activeSDKPreference = macosx10.5;
 		activeTarget = 8D1107260486CEB800E47090 /* Nocturne */;
 		addToTargets = (
 			8D1107260486CEB800E47090 /* Nocturne */,
 		);
 		breakpoints = (
-			7F93F3390BF1761D00745665 /* QSNocturneController.m:149 */,
-			7F05116D0BF2E9D200A3481E /* QSNocturneController.m:59 */,
-			7F0511780BF2EA1A00A3481E /* QSNocturneController.m:65 */,
-			7F0F1DD30BF427890053F387 /* QSNocturneController.m:53 */,
-			7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:222 */,
+			7F93F3390BF1761D00745665 /* QSNocturneController.m:161 */,
+			7F05116D0BF2E9D200A3481E /* QSNocturneController.m:71 */,
+			7F0511780BF2EA1A00A3481E /* QSNocturneController.m:77 */,
+			7F0F1DD30BF427890053F387 /* QSNocturneController.m:65 */,
+			7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:217 */,
+			7F87C658106F351D00962DC4 /* QSNocturneController.m:673 */,
 		);
 		codeSenseManager = 7F93F0CC0BF161B900745665 /* Code sense */;
 		executables = (
@@ -48,7 +50,7 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					22,
 					300,
-					131,
+					329,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXExecutablesDataSource_ActiveFlagID,
@@ -61,7 +63,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					243,
+					441,
 					20,
 					48,
 					43,
@@ -83,8 +85,8 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					200,
-					63,
+					401,
+					60,
 					20,
 					48,
 					43,
@@ -100,8 +102,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 214925686;
-			PBXWorkspaceStateSaveDate = 214925686;
+			PBXPerProjectTemplateStateSaveDate = 275727400;
+			PBXWorkspaceStateSaveDate = 275727400;
+		};
+		perUserProjectItems = {
+			7F87C6DF106F46F800962DC4 /* PBXTextBookmark */ = 7F87C6DF106F46F800962DC4 /* PBXTextBookmark */;
+			7F87C6E0106F46F800962DC4 /* XCBuildMessageTextBookmark */ = 7F87C6E0106F46F800962DC4 /* XCBuildMessageTextBookmark */;
+			7F87C6E1106F46F800962DC4 /* PBXTextBookmark */ = 7F87C6E1106F46F800962DC4 /* PBXTextBookmark */;
+			7F87C6E2106F46F900962DC4 /* PBXTextBookmark */ = 7F87C6E2106F46F900962DC4 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 7F93F0CB0BF161B900745665 /* Source Control */;
 		userBuildSettings = {
@@ -115,23 +123,7 @@
 			sepNavWindowFrame = "{{19, 96}, {1118, 777}}";
 		};
 	};
-	7F0510890BF2E20D00A3481E /* CGSPrivate.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1073, 2828}}";
-			sepNavSelRange = "{5144, 80}";
-			sepNavVisRect = "{{0, 1559}, {1073, 648}}";
-			sepNavWindowFrame = "{{19, 96}, {1118, 777}}";
-		};
-	};
-	7F05108D0BF2E26A00A3481E /* CGSPrivate+QSMods.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1268, 868}}";
-			sepNavSelRange = "{2061, 93}";
-			sepNavVisRect = "{{0, 220}, {1073, 648}}";
-			sepNavWindowFrame = "{{42, 75}, {1118, 777}}";
-		};
-	};
-	7F05116D0BF2E9D200A3481E /* QSNocturneController.m:59 */ = {
+	7F05116D0BF2E9D200A3481E /* QSNocturneController.m:71 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -141,13 +133,15 @@
 		delayBeforeContinue = 0;
 		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		functionName = "-applicationWillFinishLaunching:";
-		hitCount = 1;
+		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 59;
-		modificationTime = 201387804.629788;
+		lineNumber = 71;
+		location = Nocturne;
+		modificationTime = 275723654.415585;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	7F0511780BF2EA1A00A3481E /* QSNocturneController.m:65 */ = {
+	7F0511780BF2EA1A00A3481E /* QSNocturneController.m:77 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -157,29 +151,33 @@
 		delayBeforeContinue = 0;
 		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		functionName = "-applicationWillFinishLaunching:";
-		hitCount = 1;
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 77;
+		location = Nocturne;
+		modificationTime = 275723654.415427;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	7F0F1DD30BF427890053F387 /* QSNocturneController.m:65 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
+		functionName = "-applicationWillFinishLaunching:";
+		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 65;
-		modificationTime = 201387804.629822;
+		location = Nocturne;
+		modificationTime = 275723654.415505;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	7F0F1DD30BF427890053F387 /* QSNocturneController.m:53 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
-		functionName = "-applicationWillFinishLaunching:";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 53;
-		modificationTime = 201387804.629813;
-		state = 1;
-	};
-	7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:222 */ = {
+	7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:217 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -189,19 +187,94 @@
 		delayBeforeContinue = 0;
 		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		functionName = "-setDisplayBrightness:";
-		hitCount = 1;
+		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 222;
-		modificationTime = 201387804.629846;
+		lineNumber = 217;
+		location = Nocturne;
+		modificationTime = 275723654.415653;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
+	};
+	7F4071BE0D81FCF80052A472 /* CGSPrivate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1468, 3770}}";
+			sepNavSelRange = "{6774, 12}";
+			sepNavVisRange = "{11557, 1091}";
+		};
+	};
+	7F4587820BF6492B003BA26C /* QSCIFilterWindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {848, 273}}";
+			sepNavSelRange = "{258, 0}";
+			sepNavVisRange = "{27, 387}";
+			sepNavWindowFrame = "{{19, 0}, {1353, 778}}";
+		};
 	};
 	7F4587830BF6492B003BA26C /* QSCIFilterWindow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {928, 1288}}";
-			sepNavSelRange = "{259, 1}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 1170}}";
+			sepNavSelRange = "{2267, 0}";
+			sepNavVisRange = "{1499, 874}";
 			sepNavVisRect = "{{0, 161}, {928, 749}}";
-			sepNavWindowFrame = "{{419, 0}, {973, 878}}";
+			sepNavWindowFrame = "{{32, 0}, {973, 778}}";
 		};
+	};
+	7F87C658106F351D00962DC4 /* QSNocturneController.m:673 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
+		functionName = "-mouseExited:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 673;
+		location = Nocturne;
+		modificationTime = 275723654.415726;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	7F87C6DF106F46F800962DC4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F4587830BF6492B003BA26C /* QSCIFilterWindow.m */;
+		name = "QSCIFilterWindow.m: 87";
+		rLen = 0;
+		rLoc = 2267;
+		rType = 0;
+		vrLen = 874;
+		vrLoc = 1499;
+	};
+	7F87C6E0106F46F800962DC4 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected identifier or '(' before '}' token";
+		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 196;
+		rType = 1;
+	};
+	7F87C6E1106F46F800962DC4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
+		name = "QSNocturneController.m: 180";
+		rLen = 0;
+		rLoc = 5574;
+		rType = 0;
+		vrLen = 1059;
+		vrLoc = 5468;
+	};
+	7F87C6E2106F46F900962DC4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
+		name = "QSNocturneController.m: 187";
+		rLen = 0;
+		rLoc = 5992;
+		rType = 0;
+		vrLen = 1059;
+		vrLoc = 5468;
 	};
 	7F93F0BC0BF161B500745665 /* Nocturne */ = {
 		isa = PBXExecutable;
@@ -210,10 +283,13 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 1;
+		breakpointsEnabled = 0;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
 		dylibVariantSuffix = "";
@@ -231,6 +307,7 @@
 		name = Nocturne;
 		savedGlobals = {
 		};
+		showTypeColumn = 0;
 		sourceDirectories = (
 		);
 	};
@@ -239,6 +316,9 @@
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
 		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
 		};
 		scmType = "";
 	};
@@ -248,21 +328,23 @@
 	};
 	7F93F0CE0BF161FF00745665 /* QSNocturneController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {911, 6888}}";
-			sepNavSelRange = "{13446, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 10062}}";
+			sepNavSelRange = "{5992, 0}";
+			sepNavVisRange = "{5468, 1059}";
 			sepNavVisRect = "{{0, 4891}, {911, 617}}";
-			sepNavWindowFrame = "{{185, 129}, {956, 746}}";
+			sepNavWindowFrame = "{{37, 5}, {956, 746}}";
 		};
 	};
 	7F93F0CF0BF161FF00745665 /* QSNocturneController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 749}}";
-			sepNavSelRange = "{492, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {700, 897}}";
+			sepNavSelRange = "{600, 0}";
+			sepNavVisRange = "{218, 1190}";
 			sepNavVisRect = "{{0, 0}, {1048, 749}}";
-			sepNavWindowFrame = "{{219, 0}, {1093, 878}}";
+			sepNavWindowFrame = "{{138, -240}, {1093, 778}}";
 		};
 	};
-	7F93F3390BF1761D00745665 /* QSNocturneController.m:149 */ = {
+	7F93F3390BF1761D00745665 /* QSNocturneController.m:161 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -272,10 +354,12 @@
 		delayBeforeContinue = 0;
 		fileReference = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		functionName = "-applicationDidFinishLaunching:";
-		hitCount = 1;
+		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 149;
-		modificationTime = 201387804.6297761;
+		lineNumber = 161;
+		location = Nocturne;
+		modificationTime = 275723654.415281;
+		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
 	7FB9B7680BFB632100113B17 /* NocturneMenu.png */ = {
@@ -285,18 +369,18 @@
 	};
 	7FDB70780BF95FE200E82B16 /* QSLMUMonitor.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {848, 1036}}";
+			sepNavIntBoundsRect = "{{0, 0}, {776, 1064}}";
 			sepNavSelRange = "{110, 0}";
-			sepNavVisRange = "{0, 322}";
+			sepNavVisRange = "{0, 1144}";
 			sepNavVisRect = "{{0, 0}, {790, 749}}";
 			sepNavWindowFrame = "{{423, 0}, {835, 878}}";
 		};
 	};
 	7FDB70790BF95FE200E82B16 /* QSLMUMonitor.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1201, 2856}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1386}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 2743}}";
+			sepNavSelRange = "{720, 0}";
+			sepNavVisRange = "{491, 1070}";
 			sepNavVisRect = "{{0, 1862}, {1215, 617}}";
 			sepNavWindowFrame = "{{268, 132}, {1260, 746}}";
 		};
