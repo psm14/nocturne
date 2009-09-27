@@ -18,12 +18,12 @@
 			8D1107260486CEB800E47090 /* Nocturne */,
 		);
 		breakpoints = (
-			7F93F3390BF1761D00745665 /* QSNocturneController.m:161 */,
-			7F05116D0BF2E9D200A3481E /* QSNocturneController.m:71 */,
-			7F0511780BF2EA1A00A3481E /* QSNocturneController.m:77 */,
-			7F0F1DD30BF427890053F387 /* QSNocturneController.m:65 */,
-			7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:217 */,
-			7F87C658106F351D00962DC4 /* QSNocturneController.m:673 */,
+			7F93F3390BF1761D00745665 /* QSNocturneController.m:185 */,
+			7F05116D0BF2E9D200A3481E /* QSNocturneController.m:95 */,
+			7F0511780BF2EA1A00A3481E /* QSNocturneController.m:101 */,
+			7F0F1DD30BF427890053F387 /* QSNocturneController.m:89 */,
+			7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:243 */,
+			7F87C658106F351D00962DC4 /* QSNocturneController.m:700 */,
 		);
 		codeSenseManager = 7F93F0CC0BF161B900745665 /* Code sense */;
 		executables = (
@@ -110,6 +110,8 @@
 			7F87C6E0106F46F800962DC4 /* XCBuildMessageTextBookmark */ = 7F87C6E0106F46F800962DC4 /* XCBuildMessageTextBookmark */;
 			7F87C6E1106F46F800962DC4 /* PBXTextBookmark */ = 7F87C6E1106F46F800962DC4 /* PBXTextBookmark */;
 			7F87C6E2106F46F900962DC4 /* PBXTextBookmark */ = 7F87C6E2106F46F900962DC4 /* PBXTextBookmark */;
+			7F87C73E106F4E6B00962DC4 /* XCBuildMessageTextBookmark */ = 7F87C73E106F4E6B00962DC4 /* XCBuildMessageTextBookmark */;
+			7F87C73F106F4E6B00962DC4 /* PBXTextBookmark */ = 7F87C73F106F4E6B00962DC4 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 7F93F0CB0BF161B900745665 /* Source Control */;
 		userBuildSettings = {
@@ -123,7 +125,7 @@
 			sepNavWindowFrame = "{{19, 96}, {1118, 777}}";
 		};
 	};
-	7F05116D0BF2E9D200A3481E /* QSNocturneController.m:71 */ = {
+	7F05116D0BF2E9D200A3481E /* QSNocturneController.m:95 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -135,13 +137,13 @@
 		functionName = "-applicationWillFinishLaunching:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 71;
+		lineNumber = 95;
 		location = Nocturne;
 		modificationTime = 275723654.415585;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	7F0511780BF2EA1A00A3481E /* QSNocturneController.m:77 */ = {
+	7F0511780BF2EA1A00A3481E /* QSNocturneController.m:101 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -153,13 +155,13 @@
 		functionName = "-applicationWillFinishLaunching:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 77;
+		lineNumber = 101;
 		location = Nocturne;
 		modificationTime = 275723654.415427;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	7F0F1DD30BF427890053F387 /* QSNocturneController.m:65 */ = {
+	7F0F1DD30BF427890053F387 /* QSNocturneController.m:89 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -171,13 +173,13 @@
 		functionName = "-applicationWillFinishLaunching:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 65;
+		lineNumber = 89;
 		location = Nocturne;
 		modificationTime = 275723654.415505;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:217 */ = {
+	7F0FB5F40BF76BB0007329FE /* QSNocturneController.m:243 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -189,7 +191,7 @@
 		functionName = "-setDisplayBrightness:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 217;
+		lineNumber = 243;
 		location = Nocturne;
 		modificationTime = 275723654.415653;
 		originalNumberOfMultipleMatches = 1;
@@ -219,7 +221,7 @@
 			sepNavWindowFrame = "{{32, 0}, {973, 778}}";
 		};
 	};
-	7F87C658106F351D00962DC4 /* QSNocturneController.m:673 */ = {
+	7F87C658106F351D00962DC4 /* QSNocturneController.m:700 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -231,7 +233,7 @@
 		functionName = "-mouseExited:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 673;
+		lineNumber = 700;
 		location = Nocturne;
 		modificationTime = 275723654.415726;
 		originalNumberOfMultipleMatches = 1;
@@ -253,7 +255,7 @@
 		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 196;
+		rLoc = 222;
 		rType = 1;
 	};
 	7F87C6E1106F46F800962DC4 /* PBXTextBookmark */ = {
@@ -261,7 +263,7 @@
 		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		name = "QSNocturneController.m: 180";
 		rLen = 0;
-		rLoc = 5574;
+		rLoc = 5990;
 		rType = 0;
 		vrLen = 1059;
 		vrLoc = 5468;
@@ -271,10 +273,29 @@
 		fRef = 7F93F0CE0BF161FF00745665 /* QSNocturneController.m */;
 		name = "QSNocturneController.m: 187";
 		rLen = 0;
-		rLoc = 5992;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 1059;
 		vrLoc = 5468;
+	};
+	7F87C73E106F4E6B00962DC4 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Unused variable 'scalarOutputCount'";
+		fRef = 7FDB70790BF95FE200E82B16 /* QSLMUMonitor.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 31;
+		rType = 1;
+	};
+	7F87C73F106F4E6B00962DC4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7FDB70790BF95FE200E82B16 /* QSLMUMonitor.m */;
+		name = "QSLMUMonitor.m: 30";
+		rLen = 0;
+		rLoc = 643;
+		rType = 0;
+		vrLen = 1097;
+		vrLoc = 508;
 	};
 	7F93F0BC0BF161B500745665 /* Nocturne */ = {
 		isa = PBXExecutable;
@@ -328,9 +349,9 @@
 	};
 	7F93F0CE0BF161FF00745665 /* QSNocturneController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {978, 9906}}";
-			sepNavSelRange = "{6156, 19}";
-			sepNavVisRange = "{5199, 1664}";
+			sepNavIntBoundsRect = "{{0, 0}, {796, 10699}}";
+			sepNavSelRange = "{6780, 0}";
+			sepNavVisRange = "{5691, 1677}";
 			sepNavVisRect = "{{0, 4891}, {911, 617}}";
 			sepNavWindowFrame = "{{37, 5}, {956, 746}}";
 		};
@@ -338,13 +359,13 @@
 	7F93F0CF0BF161FF00745665 /* QSNocturneController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {700, 897}}";
-			sepNavSelRange = "{600, 0}";
-			sepNavVisRange = "{177, 1232}";
+			sepNavSelRange = "{321, 14}";
+			sepNavVisRange = "{218, 1190}";
 			sepNavVisRect = "{{0, 0}, {1048, 749}}";
 			sepNavWindowFrame = "{{138, -240}, {1093, 778}}";
 		};
 	};
-	7F93F3390BF1761D00745665 /* QSNocturneController.m:161 */ = {
+	7F93F3390BF1761D00745665 /* QSNocturneController.m:185 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -356,7 +377,7 @@
 		functionName = "-applicationDidFinishLaunching:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 161;
+		lineNumber = 185;
 		location = Nocturne;
 		modificationTime = 275723654.415281;
 		originalNumberOfMultipleMatches = 1;
@@ -378,9 +399,9 @@
 	};
 	7FDB70790BF95FE200E82B16 /* QSLMUMonitor.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1344, 2743}}";
-			sepNavSelRange = "{720, 0}";
-			sepNavVisRange = "{491, 1070}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 2756}}";
+			sepNavSelRange = "{643, 0}";
+			sepNavVisRange = "{508, 1097}";
 			sepNavVisRect = "{{0, 1862}, {1215, 617}}";
 			sepNavWindowFrame = "{{268, 132}, {1260, 746}}";
 		};

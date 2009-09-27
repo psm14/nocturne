@@ -12,6 +12,30 @@ void CGSSetDebugOptions(int);
 - (NSWindow *)_window;
 @end
 
+@implementation NSWindow (sticky)
+
+
+- (void) setSticky:(BOOL)flag {
+  CGSConnection cid;
+  CGWindowID wid;
+  
+  wid = [self windowNumber];
+
+  cid = _CGSDefaultConnection();
+  int tags[2] = { 0, 0 };
+  
+  if (!CGSGetWindowTags(cid, wid, tags, 32)) {
+    if (flag) {
+      tags[0] = tags[0] | 0x00000800;
+    } else {
+      tags[0] = tags[0] & ~0x00000800;
+    }
+    CGSSetWindowTags(cid, wid, tags, 32);
+  }
+}
+
+@end
+
 @implementation QSNocturneController 
 @synthesize dimMenu, invertMenuAlways;
 
@@ -191,6 +215,8 @@ void CGSSetDebugOptions(int);
       [desktopWindow setLevel:NSNormalWindowLevel - 1];
       [desktopWindow setBackgroundColor:[NSColor colorWithDeviceWhite:1.0 alpha:1.0]];
       [desktopWindow orderFront:nil];
+      [desktopWindow setSticky:YES];
+      [desktopWindow setCollectionBehavior:1 | 16];
       [desktopWindows addObject:desktopWindow];
       [desktopWindow release];
     }
@@ -369,7 +395,7 @@ void CGSSetDebugOptions(int);
       //OSX 10.4 compatible code that puts the overlays on all spaces
       // replacement for the line commented out below
       if ([overlayWindow respondsToSelector:@selector(setCollectionBehavior:)]) {
-        [overlayWindow setCollectionBehavior:1];
+        [overlayWindow setCollectionBehavior:1 | 16];
       }
       //This line is OSX 10.5 specific.
       //[overlayWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
@@ -619,7 +645,7 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   NSRect rect = [[NSScreen mainScreen] frame];
   rect = NSMakeRect(0,NSMaxY(rect)-22,NSWidth(rect),22);
   
-  menuWindow = [[NSWindow alloc]initWithContentRect:rect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES];
+  menuWindow = [[NSWindow alloc]initWithContentRect:rect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
   [menuWindow setBackgroundColor: [NSColor blackColor]];
   [menuWindow setOpaque:NO];
   [menuWindow setAlphaValue:0.9];
@@ -628,7 +654,8 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   [menuWindow setIgnoresMouseEvents:YES];
   [menuWindow setHasShadow:NO];
   [menuWindow setLevel:kCGStatusWindowLevel+2];
-  //[window setSticky:YES];
+  [menuWindow setCollectionBehavior:1 | 16];
+  [menuWindow setSticky:YES];
   //[window setDelegate:[window contentView]]];
   NSTrackingArea *area = [[[NSTrackingArea alloc] initWithRect:NSZeroRect options:NSTrackingMouseEnteredAndExited | NSTrackingInVisibleRect | NSTrackingEnabledDuringMouseDrag |NSTrackingActiveAlways
                                                          owner:self userInfo:nil] autorelease];
@@ -703,10 +730,15 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   [menuHueOverlay setLevel:kCGStatusWindowLevel+1];
   [menuHueOverlay setFilter:@"CIHueAdjust"];
   [menuHueOverlay setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];  
-  
+  [menuHueOverlay setCollectionBehavior:1 | 16];
+  [menuHueOverlay setSticky:YES];
+
   menuInvertOverlay = [[QSCIFilterWindow alloc] init];
   [menuInvertOverlay setLevel:kCGStatusWindowLevel+1];
   [menuInvertOverlay setFilter:@"CIColorInvert"];
+  [menuInvertOverlay setCollectionBehavior:1 | 16];
+  [menuInvertOverlay setSticky:YES];
+
   [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(endTracking) name:@"com.apple.HIToolbox.endMenuTrackingNotification" object:nil];
   [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(beginTracking) name:@"com.apple.HIToolbox.beginMenuTrackingNotification" object:nil];
   
