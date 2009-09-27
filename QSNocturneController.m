@@ -470,8 +470,8 @@ void CGSSetDebugOptions(int);
     [self applyEnabled:value]; 
   } else { 
     
-    float fadeout = enabled ? 0.5 : 1.0;
-    float fadein = enabled ? 0.5 : 1.0;
+    float fadeout = 0.5;
+    float fadein = 0.5;
     CGDisplayFadeReservationToken token;
     CGDisplayErr err;
     err = CGAcquireDisplayFadeReservation (3.0, &token); // 1

@@ -278,8 +278,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
-									<integer>12</integer>
+									<integer>6</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -520,13 +520,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>7F87C6DA106F463B00962DC4</string>
+		<string>7F87C6F4106F48E200962DC4</string>
 		<string>7F87C6DB106F463B00962DC4</string>
 		<string>7F87C6DC106F463B00962DC4</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>7FA47D240CCF818C0042A8DF</string>
 		<string>/Volumes/Lore/Dropbox/Projects-Personal/Ω Archive/Nocturne/Nocturne.xcodeproj</string>
+		<string>7F87C6ED106F480300962DC4</string>
+		<string>7F87C6EE106F480300962DC4</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>192 62 888 674 0 0 1440 878 </string>
@@ -900,7 +902,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

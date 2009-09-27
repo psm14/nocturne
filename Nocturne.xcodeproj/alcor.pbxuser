@@ -328,9 +328,9 @@
 	};
 	7F93F0CE0BF161FF00745665 /* QSNocturneController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1344, 10062}}";
-			sepNavSelRange = "{5992, 0}";
-			sepNavVisRange = "{5468, 1059}";
+			sepNavIntBoundsRect = "{{0, 0}, {978, 9906}}";
+			sepNavSelRange = "{6156, 19}";
+			sepNavVisRange = "{5199, 1664}";
 			sepNavVisRect = "{{0, 4891}, {911, 617}}";
 			sepNavWindowFrame = "{{37, 5}, {956, 746}}";
 		};
@@ -339,7 +339,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {700, 897}}";
 			sepNavSelRange = "{600, 0}";
-			sepNavVisRange = "{218, 1190}";
+			sepNavVisRange = "{177, 1232}";
 			sepNavVisRect = "{{0, 0}, {1048, 749}}";
 			sepNavWindowFrame = "{{138, -240}, {1093, 778}}";
 		};
