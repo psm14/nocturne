@@ -38,12 +38,11 @@
 		7F0F1D600BF41DDC0053F387 /* Sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sun.png; sourceTree = "<group>"; };
 		7F0F1D610BF41DDC0053F387 /* SunPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SunPressed.png; sourceTree = "<group>"; };
 		7F0FB4EB0BF7650A007329FE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		7F4071BE0D81FCF80052A472 /* CGSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGSPrivate.h; path = "../Undocumented-Goodness/CoreGraphics/CGSPrivate.h"; sourceTree = SOURCE_ROOT; };
 		7F4587820BF6492B003BA26C /* QSCIFilterWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSCIFilterWindow.h; sourceTree = "<group>"; };
 		7F4587830BF6492B003BA26C /* QSCIFilterWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSCIFilterWindow.m; sourceTree = "<group>"; };
 		7F87C58E106EFFF000962DC4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		7F87C6B6106F435F00962DC4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		7F93F0CE0BF161FF00745665 /* QSNocturneController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSNocturneController.m; sourceTree = "<group>"; };
+		7F93F0CE0BF161FF00745665 /* QSNocturneController.m */ = {isa = PBXFileReference; fileEncoding = 30; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = QSNocturneController.m; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		7F93F0CF0BF161FF00745665 /* QSNocturneController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSNocturneController.h; sourceTree = "<group>"; };
 		7F93F59B0BF1807100745665 /* Nocturne.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Nocturne.icns; sourceTree = "<group>"; };
 		7FB9B7680BFB632100113B17 /* NocturneMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NocturneMenu.png; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		7FDB70790BF95FE200E82B16 /* QSLMUMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSLMUMonitor.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Nocturne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nocturne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5333A3512ECB6270000B377 /* CGSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSPrivate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 		29B97314FDCFA39411CA2CEA /* Nocturne */ = {
 			isa = PBXGroup;
 			children = (
-				7F4071BE0D81FCF80052A472 /* CGSPrivate.h */,
+				C5333A3512ECB6270000B377 /* CGSPrivate.h */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -185,7 +185,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nocturne" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Nocturne */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,7 +292,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -297,7 +304,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

@@ -112,6 +112,8 @@ void CGSSetDebugOptions(int);
 }
 
 - (void)applicationDidChangeScreenParameters:(NSNotification *)aNotification{
+  if (!enabled) return;
+  
 	if ([overlayWindows count] != 0) {
 		[self setupOverlays];
 	}
@@ -593,7 +595,6 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
                              sizeof(UInt32),
                              /*outActualSize*/ NULL,
                              &mode);
-    
     [controller modeDidChange:mode];
     status = noErr;	 // everything went well, event handled
   }
@@ -603,13 +604,14 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
 @implementation QSNocturneController (MenuCovers)
 
 - (void)modeDidChange:(int)mode {
+  if (!invertMenuAlways) return;
+
   if (mode) {
     [menuWindow orderOut:nil];
     [menuHueOverlay orderOut:nil];
     [menuInvertOverlay orderOut:nil];
   } else {
-    
-    [menuWindow orderFront:nil];
+    if (dimMenu) [menuWindow orderFront:nil];
     [menuHueOverlay orderFront:nil];
     [menuInvertOverlay orderFront:nil];
   }
