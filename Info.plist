@@ -28,6 +28,8 @@
 	<string>NSApplication</string>
 	<key>NSUserDefaults</key>
 	<dict>
+		<key>showMenu</key>
+		<true/>
 		<key>adjustBrightness</key>
 		<false/>
 		<key>blackColor</key>

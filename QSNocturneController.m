@@ -50,8 +50,9 @@ void CGSSetDebugOptions(int);
 
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
-  [self toggle:nil];
-  [sender hide:sender];
+  //[self toggle:nil];
+  [self showPreferences:sender];
+  //[sender hide:sender];
   return NO;
 }
 - (NSString *)toggleTitle {
@@ -90,7 +91,9 @@ void CGSSetDebugOptions(int);
   originalBrightness = [self getDisplayBrightness];
   
   BOOL uiElement = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"LSUIElement"] boolValue];
-  if (uiElement) {
+  BOOL menuEnabled = [[[NSUserDefaults standardUserDefaults] objectForKey:@"showMenu"] boolValue];
+  
+  if (uiElement && menuEnabled) {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:22];
     [statusItem setMenu:statusMenu];
     [statusItem setHighlightMode:YES];
@@ -624,6 +627,20 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   } else if ([keyPath isEqualToString:@"values.hueCorrect"]) {
     correctHue = [[object valueForKeyPath:keyPath] boolValue];
     [self updateFrames];
+  } else if ([keyPath isEqualToString:@"values.showMenu"]) {
+    BOOL visible = [[object valueForKeyPath:keyPath] boolValue];
+    if (visible) {
+      statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:22];
+      [statusItem setMenu:statusMenu];
+      [statusItem setHighlightMode:YES];
+      [statusItem setImage:[NSImage imageNamed:@"NocturneMenu"]];
+      [statusItem setAlternateImage:[NSImage imageNamed:@"NocturneMenuPressed"]];
+      [statusItem retain]; 
+    } else {
+      [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
+      [statusItem release];
+      statusItem = nil;
+    }
   } else {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
   }
@@ -643,6 +660,7 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   [self bind:@"useLightSensors" toObject:dController withKeyPath:@"values.useLightSensors" options:nil];
   [dController addObserver:self forKeyPath:@"values.dimMenuOpacity" options:0 context:NULL];
   [dController addObserver:self forKeyPath:@"values.hueCorrect" options:0 context:NULL];
+  [dController addObserver:self forKeyPath:@"values.showMenu" options:0 context:NULL];
   
   NSRect rect = [[NSScreen mainScreen] frame];
   rect = NSMakeRect(0,NSMaxY(rect)-22,NSWidth(rect),22);
