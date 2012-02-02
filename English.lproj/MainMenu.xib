@@ -1143,7 +1143,7 @@
 							<string key="NSFrame">{{106, 492}, {147, 11}}</string>
 							<reference key="NSSuperview" ref="1069124904"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="832724425"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="862116620">
 								<int key="NSCellFlags">67239424</int>
@@ -1277,24 +1277,6 @@
 								<bool key="NSAnimates">NO</bool>
 							</object>
 							<bool key="NSEditable">YES</bool>
-						</object>
-						<object class="NSTextField" id="832724425">
-							<reference key="NSNextResponder" ref="1069124904"/>
-							<int key="NSvFlags">256</int>
-							<string key="NSFrame">{{11, 437}, {62, 13}}</string>
-							<reference key="NSSuperview" ref="1069124904"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="917787896"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="61873078">
-								<int key="NSCellFlags">67239424</int>
-								<int key="NSCellFlags2">71303168</int>
-								<string key="NSContents">Preview</string>
-								<reference key="NSSupport" ref="25"/>
-								<reference key="NSControlView" ref="832724425"/>
-								<reference key="NSBackgroundColor" ref="971572496"/>
-								<reference key="NSTextColor" ref="875163360"/>
-							</object>
 						</object>
 						<object class="NSSlider" id="26158497">
 							<reference key="NSNextResponder" ref="1069124904"/>
@@ -1523,7 +1505,7 @@
 							<string key="NSFrame">{{102, 118}, {130, 18}}</string>
 							<reference key="NSSuperview" ref="1069124904"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="502924543"/>
+							<reference key="NSNextKeyView" ref="853090342"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="454174751">
 								<int key="NSCellFlags">67239424</int>
@@ -1623,36 +1605,6 @@
 								<reference key="NSBackgroundColor" ref="971572496"/>
 								<reference key="NSTextColor" ref="691131580"/>
 							</object>
-						</object>
-						<object class="NSImageView" id="502924543">
-							<reference key="NSNextResponder" ref="1069124904"/>
-							<int key="NSvFlags">256</int>
-							<set class="NSMutableSet" key="NSDragTypes">
-								<string>Apple PDF pasteboard type</string>
-								<string>Apple PICT pasteboard type</string>
-								<string>Apple PNG pasteboard type</string>
-								<string>NSFilenamesPboardType</string>
-								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-								<string>NeXT TIFF v4.0 pasteboard type</string>
-							</set>
-							<string key="NSFrame">{{225, 124}, {16, 16}}</string>
-							<reference key="NSSuperview" ref="1069124904"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="853090342"/>
-							<bool key="NSViewIsLayerTreeHost">YES</bool>
-							<double key="NSViewAlphaValue">0.50408450704225349</double>
-							<int key="NSViewLayerContentsRedrawPolicy">2</int>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSImageCell" key="NSCell" id="985762096">
-								<int key="NSCellFlags">130560</int>
-								<int key="NSCellFlags2">33554432</int>
-								<reference key="NSContents" ref="706188364"/>
-								<int key="NSAlign">0</int>
-								<int key="NSScale">0</int>
-								<int key="NSStyle">0</int>
-								<bool key="NSAnimates">YES</bool>
-							</object>
-							<bool key="NSEditable">YES</bool>
 						</object>
 						<object class="NSButton" id="136153127">
 							<reference key="NSNextResponder" ref="1069124904"/>
@@ -3133,9 +3085,7 @@
 							<reference ref="39487622"/>
 							<reference ref="4617792"/>
 							<reference ref="130175854"/>
-							<reference ref="502924543"/>
 							<reference ref="975067774"/>
-							<reference ref="832724425"/>
 							<reference ref="77643887"/>
 							<reference ref="841885240"/>
 							<reference ref="481805779"/>
@@ -3669,32 +3619,6 @@
 						<reference key="parent" ref="448064481"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">389</int>
-						<reference key="object" ref="832724425"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="61873078"/>
-						</array>
-						<reference key="parent" ref="1069124904"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">443</int>
-						<reference key="object" ref="61873078"/>
-						<reference key="parent" ref="832724425"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">542</int>
-						<reference key="object" ref="502924543"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="985762096"/>
-						</array>
-						<reference key="parent" ref="1069124904"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">543</int>
-						<reference key="object" ref="985762096"/>
-						<reference key="parent" ref="502924543"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">545</int>
 						<reference key="object" ref="136153127"/>
 						<array class="NSMutableArray" key="children">
@@ -3799,7 +3723,6 @@
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="375.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="377.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="389.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="396.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="402.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="403.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3832,7 +3755,6 @@
 				<string key="440.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="441.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="442.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="443.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="444.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="445.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="446.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3847,8 +3769,6 @@
 				<string key="508.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="536.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="537.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="542.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="543.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="546.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
