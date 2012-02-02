@@ -750,14 +750,17 @@ pascal OSStatus AppEventHandler( EventHandlerCallRef inCallRef, EventRef inEvent
   [menuHueOverlay setLevel:kCGStatusWindowLevel+1];
   [menuHueOverlay setFilter:@"CIHueAdjust"];
   [menuHueOverlay setFilterValues:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:M_PI], @"inputAngle",nil]];  
-  [menuHueOverlay setCollectionBehavior:1 | 16];
-  [menuHueOverlay setSticky:YES];
+  //[menuHueOverlay setCollectionBehavior:1 | 16];
+  [menuHueOverlay setCollectionBehavior:NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorMoveToActiveSpace];
+  //[menuHueOverlay setSticky:YES];
 
   menuInvertOverlay = [[QSCIFilterWindow alloc] init];
   [menuInvertOverlay setLevel:kCGStatusWindowLevel+1];
   [menuInvertOverlay setFilter:@"CIColorInvert"];
-  [menuInvertOverlay setCollectionBehavior:1 | 16];
-  [menuInvertOverlay setSticky:YES];
+  //[menuInvertOverlay setCollectionBehavior:1 | 16];
+  [menuInvertOverlay setCollectionBehavior:NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorMoveToActiveSpace];
+  //[menuInvertOverlay setCollectionBehavior:NSWindowCollectionBehaviorMoveToActiveSpace];
+  //[menuInvertOverlay setSticky:YES];
 
   [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(endTracking) name:@"com.apple.HIToolbox.endMenuTrackingNotification" object:nil];
   [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(beginTracking) name:@"com.apple.HIToolbox.beginMenuTrackingNotification" object:nil];
